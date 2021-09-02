@@ -1,18 +1,20 @@
 ﻿@page "/args"
 <h3>Component1</h3>
-<button @onclick="hannes" ></button>
+<button @onclick="hannes" >klick</button>
 <div @onmouseover="hannes2" ></div>
 <ul>
     <li @key="1">dgdfg</li>
     <li>dgdfg</li>
 </ul>
+<Component2 MyProperty="Test" @ref="Mycomp2"></Component2>
 @code {
+    Component2 Mycomp2;
     void hannes(MouseEventArgs e) //nicht machen
+    {
+        Mycomp2.MyProperty = "geklickt";
+    }
+    void hannes2(MouseEventArgs e)
     {
 
     }
-    void hannes2(MouseEventArgs e)
-        {
-
-        }
 }
