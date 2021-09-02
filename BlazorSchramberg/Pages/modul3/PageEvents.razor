@@ -1,0 +1,29 @@
+﻿@page "/pe"
+<h3>PageEvents</h3>
+<button @onclick="klick"> klick</button>
+@eins
+@code {
+
+    int eins = 0;
+
+
+    void klick()
+    {
+        eins++;
+    }
+    protected override void OnInitialized()
+    {
+        eins++;
+
+    }
+    protected override void OnAfterRender(bool firstRender)
+    {
+        eins++;
+        if (firstRender)
+        {
+            StateHasChanged();
+
+        }
+
+    }
+}
