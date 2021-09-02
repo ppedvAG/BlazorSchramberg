@@ -1,0 +1,8 @@
+﻿@page "/bind"
+<h3>Bindung</h3>
+<input @bind="MyProperty" style="background-color:@MyProperty"/>
+
+@code {
+
+    public string MyProperty { get; set; }
+}
