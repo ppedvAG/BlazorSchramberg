@@ -1,0 +1,39 @@
+﻿@page "/rest"
+@inject IHttpClientFactory http
+@using System.Text.Json 
+<h3>RESTTodo</h3>
+<button class="btn btn-outline-info" @onclick="laden">laden</button>
+@if (liste == null)
+{
+    <p>daten werden geladen....</p>
+}
+else
+{
+    <ul class="list-group">
+        @foreach (var item in liste)
+        {
+            <li class="list-group-item">
+                @item.title
+            </li>
+        }
+    </ul>
+
+}
+
+@code {
+    public List<Todos> liste;
+    void laden()
+
+    {
+        var client = http.CreateClient();
+        var ret=client.GetAsync("https://jsonplaceholder.typicode.com/todos").Result;
+        if (ret.IsSuccessStatusCode)
+        {
+            var data = ret.Content.ReadAsStringAsync().Result;
+            liste=JsonSerializer.Deserialize<List<Todos>>(data);
+        }
+
+    }
+
+
+}
