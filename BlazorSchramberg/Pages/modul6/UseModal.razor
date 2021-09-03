@@ -1,0 +1,26 @@
+﻿@page "/modal"
+<h3>UseModal</h3>
+<button @onclick="show">open/close</button>
+<PpedvModal @ref="ppm" Titel="Bitte Daten eingeben" OnModal="hannes">
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Name</label>
+        <div class="col-sm-10">
+            <input class="form-control" @bind ="Eingabe"/>
+        </div>
+    </div>
+    <button class="btn btn-outline-primary">Ok</button>
+</PpedvModal>
+@code {
+    PpedvModal ppm;
+    string Eingabe;
+    void show()
+    {
+        ppm.Show();
+
+    }
+    void hannes()
+        {
+
+        }
+
+}
