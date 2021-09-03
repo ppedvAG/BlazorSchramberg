@@ -10,12 +10,17 @@
 else
 {
     <ul class="list-group">
-        @foreach (var item in liste)
-        {
-            <li class="list-group-item">
-                @item.title
-            </li>
-        }
+        <Virtualize Items="liste" ItemSize="25" OverscanCount="5" Context="item">
+            <Placeholder>
+                daten werden geladen
+            </Placeholder>
+            <ItemContent>
+                <li class="list-group-item">
+                    @item.title
+                </li>
+            </ItemContent>
+         
+        </Virtualize>
     </ul>
 
 }
