@@ -1,0 +1,15 @@
+﻿@page "/kunden"
+@using models
+@inject northwindContext ctx  
+<h3>Kunden</h3>
+<input @bind="suche"/><br />
+@foreach (var item in ctx.Customers.Where(x=>x.CompanyName.Contains(suche)))
+{
+<a href="/details/@item.CustomerId">
+    @item.CompanyName
+</a><br/>
+}
+@code {
+    string suche;
+
+}

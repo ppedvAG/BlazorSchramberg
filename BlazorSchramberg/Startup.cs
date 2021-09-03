@@ -1,9 +1,11 @@
 using BlazorSchramberg.Data;
+using BlazorSchramberg.models;
 using BlazorSchramberg.Pages.modul4;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -32,6 +34,8 @@ namespace BlazorSchramberg
             services.AddSingleton<WeatherForecastService>();
             services.AddSingleton<ChatVM>();
             services.AddHttpClient();
+            services.AddDbContext<northwindContext>(o=>
+            o.UseSqlServer(Configuration.GetConnectionString("northwind")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
