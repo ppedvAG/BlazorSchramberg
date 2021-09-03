@@ -1,7 +1,7 @@
 ﻿@page "/details"
 @page "/details/{id}"
 <h3>Details</h3>
-<EditForm Model="p" OnSubmit="save" >
+<EditForm EditContext="_editcontext" OnSubmit="save">
     <DataAnnotationsValidator></DataAnnotationsValidator>
     <div class="form-group row">
         <label class="col-sm-2 col-form-label">Name</label>
@@ -32,9 +32,15 @@
     [Parameter]
     public string id { get; set; }
     Person p = new Person();
+
+    EditContext _editcontext;
     void save()
     {
 
     }
-
+    protected override void OnInitialized()
+    {
+        _editcontext = new EditContext(p);
+        _editcontext.SetFieldCssClassProvider(new InputErrorfixBoostrapFieldClassCssProvider());
+    }
 }
