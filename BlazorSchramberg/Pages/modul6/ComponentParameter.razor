@@ -1,0 +1,21 @@
+﻿@using BlazorSchramberg.Pages.modul5
+<div @attributes="RestAttribute">
+    <h3>@Titel</h3>
+    @MyPerson.Name
+</div>
+<hr />
+@ChildContent
+
+@code {
+    [Parameter]
+    public string Titel { get; set; }
+    [Parameter]
+    public Person MyPerson { get; set; }
+    [CascadingParameter]
+    public string MyProperty { get; set; }
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object> RestAttribute { get; set; }
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+}

@@ -1,0 +1,16 @@
+﻿@page "/parashow"
+@using BlazorSchramberg.Pages.modul5
+<h3 style="">UseCompPara</h3>
+
+<CascadingValue Name="Para1" Value="@("Wert")">
+    <ComponentParameter Titel="Test" @ref="mypers" style="background-color:silver"  class="btn"
+                        MyPerson="@(new Person {Name="Hannes" })">
+        <h3>wunderbaerer Child Content</h3>
+        <p>lorem ipsum</p>
+    </ComponentParameter>
+</CascadingValue>
+
+@code {
+    ComponentParameter mypers;
+    Person p;
+}
