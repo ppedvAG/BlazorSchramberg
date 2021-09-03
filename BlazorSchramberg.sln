@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31229.75
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorSchramberg", "BlazorSchramberg\BlazorSchramberg.csproj", "{3E40B44B-628C-43FD-8C8A-73D08B8BBD6B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorClassLibrary1", "RazorClassLibrary1\RazorClassLibrary1.csproj", "{3D6C3871-70F6-45FE-9D96-6725E718F2C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{3E40B44B-628C-43FD-8C8A-73D08B8BBD6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E40B44B-628C-43FD-8C8A-73D08B8BBD6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E40B44B-628C-43FD-8C8A-73D08B8BBD6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D6C3871-70F6-45FE-9D96-6725E718F2C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D6C3871-70F6-45FE-9D96-6725E718F2C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D6C3871-70F6-45FE-9D96-6725E718F2C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D6C3871-70F6-45FE-9D96-6725E718F2C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
