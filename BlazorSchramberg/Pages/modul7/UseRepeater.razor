@@ -1,0 +1,23 @@
+﻿@page "/ur" 
+@using models 
+@inject northwindContext ctx
+<h3>UseRepeater</h3>
+<table class="table table-striped">
+    <PPedvRepeater FlexTyp="Customer" Context="items" 
+                   SelectMethod="GetCustomers">
+        <EmptyDataTemplate>
+            keine Daten
+        </EmptyDataTemplate>
+        <ItemTemplate>
+            <tr>
+            <td>@items.CustomerId</td>
+            <td>@items.CompanyName</td></tr>
+        </ItemTemplate>
+    </PPedvRepeater>
+</table>
+@code {
+    public IEnumerable<Customer> GetCustomers()
+        {
+        return ctx.Customers;
+        }
+}

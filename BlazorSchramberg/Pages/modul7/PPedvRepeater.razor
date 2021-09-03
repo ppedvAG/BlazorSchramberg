@@ -1,0 +1,36 @@
+﻿@typeparam FlexTyp
+@if (Items?.Any() ?? false)
+{
+    @foreach (var item in Items)
+    {
+        @ItemTemplate(item)
+    }
+
+}
+
+else
+
+{
+    @EmptyDataTemplate
+
+}
+
+@code {
+    [Parameter]
+    public IEnumerable<FlexTyp> Items { get; set; }
+    [Parameter]
+    public RenderFragment EmptyDataTemplate { get; set; }
+
+    [Parameter]
+    public RenderFragment<FlexTyp> ItemTemplate { get; set; }
+    [Parameter]
+    public Func<IEnumerable<FlexTyp>> SelectMethod { get; set; }
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+           Items= SelectMethod.Invoke();
+            StateHasChanged();
+        }
+    }
+}
