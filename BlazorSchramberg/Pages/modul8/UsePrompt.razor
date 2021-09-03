@@ -1,0 +1,15 @@
+﻿@page "/prompt" 
+@using RazorClassLibrary1
+@inject IJSRuntime Jsruntime
+<h3>UsePrompt</h3>
+<button @onclick="prompt">prompt</button>
+@code {
+
+    async void prompt()
+    {
+
+        var o = new ExampleJsInterop(Jsruntime);
+        var ret = await o.Prompt("Halloe welt ");
+
+    }
+}

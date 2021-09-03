@@ -1,0 +1,23 @@
+﻿@page "/blazorjs"
+@inject IJSRuntime JSRuntime
+<h3>BlazorJS</h3>
+<button @onclick="alert">alert</button>
+<button @onclick="prompt">prompt</button>
+<button @onclick="title">title</button>
+@code {
+    void alert()
+    {
+
+        JSRuntime.InvokeVoidAsync("alert", "Hallo Welt");
+    }
+    async void  prompt()
+    {
+        var wert =await JSRuntime.InvokeAsync<string>("prompt", "wie heissen sie?");
+    }
+    void title()
+    {
+
+        JSRuntime.InvokeVoidAsync("eval", "document.title='toller Titel';");
+    }
+
+}
